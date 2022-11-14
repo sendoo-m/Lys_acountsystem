@@ -1,0 +1,24 @@
+{% extends 'parties/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class='container'>
+
+<div class="row text-center m-5" >
+    {% comment %} <i class="bi bi-credit-card"></i>
+    <i class="bi bi-person-plus"></i> {% endcomment %}
+    
+    <div class="col-md-6">
+        <a href="{% url 'studentform_form' %}">
+        <img src="{% static '/image/add-user.png' %}" alt="إضافة طالب" width="250" height="250">
+        إضافة طالب جديد</a>
+    </div>
+    <div class="col-md-6">
+        <a href="{% url 'search' %}">
+        <img src="{% static '/image/payment.png' %}" alt="دفع مصاريف" width="250" height="250">
+        دفع مصروفات</a>
+    </div>
+
+</div>
+</div>
+{% endblock content %}

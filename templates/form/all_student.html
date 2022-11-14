@@ -1,0 +1,95 @@
+{% extends 'parties/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}All Student{% endblock %} 
+{% block content %}
+
+
+<div class="container mt-3" style='width: 95%; font-size: 14px'>
+    <br >
+    <br >
+    <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">المصاريف المدرسية</th>
+            <th scope="col">نشاط</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        
+        <tr>
+            <td>18416.59</td>
+            <td>367</td>
+         
+        </tr>
+          
+    </tbody>
+    </table>
+    <br >
+    <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">كود</th>
+            <th scope="col">اسم الطالب</th>
+            <!--<th scope="col">الرقم القومي</th>-->
+            <th scope="col">خصم</th>
+            <th scope="col">الصافي</th>
+            <th scope="col">القسط الاول</th>
+            <th scope="col">ايصال رقم</th>
+            <th scope="col">القسط الثاني</th>
+            <th scope="col">ايصال رقم</th>
+            <th scope="col">القسط الثالث</th>
+            <th scope="col">ايصال رقم</th>
+            <th scope="col">الباقي</th>
+            <th scope="col">بتاريخ</th>
+            <th scope="col">تعديل</th>
+
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for data in data %}
+          <tr>
+            <th scope="row">{{ data.id }}</th>
+            <td>{{ data.name }}</td>
+            <!--<td>{{ data.id_number }}</td>-->
+            <td>{{ data.discount }}</td>
+            <td>{{ data.net_expenses }}</td>
+            <td>{{ data.f_installment }}</td>
+            <td>{{ data.f_receipt_number }}</td>
+            <td>{{ data.s_installment }}</td>
+            <td>{{ data.s_receipt_number }}</td>
+            <td>{{ data.th_installment }}</td>
+            <td>{{ data.th_receipt_number }}</td>
+            <td>{{ data.remaining_amount }}</td>
+            <td>{{ data.created_at }}</td>
+            <td><a href="{% url 'edit' data.id  %}" class="btn btn-info btm-sm">دفع القسط</a></td>
+            {% endfor %}            
+          </tr>
+          
+        </tbody>
+      </table>
+
+    
+      <!-- ####################################        
+      # # All Fields Frome Models.py
+      #          
+      #     name             
+      #     id_number        
+      #     school_fees      
+      #     activity         
+      #     discount         
+      #     net_expenses     
+      #     f_installment    
+      #     f_receipt_number 
+      #     s_installment    
+      #     s_receipt_number 
+      #     th_installment   
+      #     th_receipt_number
+      #     remaining_amount 
+      #################################### -->
+
+</div> <!--End container-->
+<br >
+<br >
+<br >
+<br >
+{% endblock %}
